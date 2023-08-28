@@ -1,6 +1,7 @@
 # mqtt_setup.py
 import adafruit_esp32spi.adafruit_esp32spi_socket as socket
-import adafruit_minimqtt as miniMQTT
+#import adafruit_minimqtt as miniMQTT
+import adafruit_minimqtt.adafruit_minimqtt as MQTT
 from timer import Timer
 
 loop_timer = Timer()
@@ -20,8 +21,8 @@ class MQTT():
         self.wifi = wifi
         self.default_topic = topic
         self.client_id = self.settings["mqtt_clientid"]
-        miniMQTT.set_socket(socket, self.wifi.esp)
-        self.mqtt_client = miniMQTT.MQTT(
+        MQTT.set_socket(socket, self.wifi.esp)
+        self.mqtt_client = MQTT.MQTT(
             broker=secrets["mqtt_broker"],
             username=secrets["mqtt_broker_user"],
             password=secrets["mqtt_broker_password"],
