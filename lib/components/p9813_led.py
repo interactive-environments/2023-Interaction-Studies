@@ -1,10 +1,9 @@
-# led.py
 
 import board
 import p9813
 
-class LED():
-    def __init__(self, num_leds=1,port_clk=board.D13,port_data=board.D10):
+class P9813LED():
+    def __init__(self, num_leds=2,port_clk=board.D13,port_data=board.D10):
         self.pin_clk = port_clk
         self.pin_data = port_data
         self.num_leds = num_leds
