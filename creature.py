@@ -1,11 +1,11 @@
 from components.button import Button
 from components.buzzer import Buzzer
-from components.led import LED
+from components.neopixel_led import NeopixelLED
 import random
 
 button = Button()
 buzzer = Buzzer()
-led = LED(1)
+led = NeopixelLED(1)
 
 increase = True
 led_power = 255
