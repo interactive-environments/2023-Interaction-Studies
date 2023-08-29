@@ -9,7 +9,7 @@ led = NeopixelLED(1)
 
 increase = True
 led_power = 255
-color = (1, 0, 0)
+color = (1, 0, 0, 0)
 
 
 class Creature:
@@ -23,20 +23,20 @@ class Creature:
         # Activate the buzzer if we recieve ping
         if msg == "ping":
             # Change led color to Green
-            color = (0, 1, 0)
+            color = (0, 1, 0, 0)
             buzzer.update(0)
 
         # Send the ping message when we recive pong
         if msg == "pong":
             # Change led color ot Red
-            color = (1, 0, 0)
+            color = (1, 0, 0, 0)
             buzzer.update(0)
             # There is a 25% change that we will repley with ping
             if random.randint(0,3) == 3:
                 self.ecosystem.send_message("ping")
 
         if msg == "pow":
-            color = (0, 0, 0)
+            color = (0, 0, 0, 0)
             buzzer.update(10)
 
     def sense(self):

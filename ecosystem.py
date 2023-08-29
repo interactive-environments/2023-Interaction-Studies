@@ -1,9 +1,9 @@
 from components.wifi_setup import WiFi
-from components.mqtt_setup import MQTT
+from components.mqtt_setup import MQTTBroker
 from timer import Timer
 import random
 
-# All messages in this list will be send as part of the 
+# All messages in this list will be send as part of the
 offline_messages = ["ping", "pong", "pow"]
 
 offline_timer = Timer()
@@ -16,7 +16,7 @@ class EcoSystem:
 
         if self.connect_to_ecosystem:
             wifi = WiFi()
-            self.mqtt = MQTT(wifi, ecosystem, self.creature)
+            self.mqtt = MQTTBroker(wifi, ecosystem, self.creature)
 
     # Sends a message in the ecosystem
     def send_message(self, message):
@@ -38,5 +38,5 @@ class EcoSystem:
 
 
 
-        
-        
+
+

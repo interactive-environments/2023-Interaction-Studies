@@ -5,7 +5,7 @@ import board
 import neopixel
 
 class NeopixelLED():
-    def __init__(self, num_leds = 2,port_leds=board.D13):
+    def __init__(self, num_leds = 1,port_leds=board.D13):
         self.pin_leds = port_leds
         self.num_leds = num_leds
         self.leds = neopixel.NeoPixel(self.pin_leds, self.num_leds, auto_write=False, pixel_order=neopixel.GRBW)
