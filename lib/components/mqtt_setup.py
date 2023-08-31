@@ -40,14 +40,13 @@ class MQTTBroker():
         self.mqtt_client.connect()
 
     def message(self, client, topic, message):
-        sender_id = message.split("$$$")[0]
-        if sender_id != self.client_id:
-            self.creature.message(message.split("$$$")[1])
+        self.creature.message(topic, message)
 
     ### MQTT connection functions ###
     def connected(self, client, userdata, flags, rc):
         print("Connected to MQTT broker! Listening for topic changes on %s" % self.default_topic)
-        client.subscribe(self.default_topic)
+        client.subscribe("reefcontrol/timeofday")
+        client.subscribe("reefcontrol/energy")
 
     def disconnected(self, client, userdata, rc):
         print("Disconnected from MQTT Broker!")

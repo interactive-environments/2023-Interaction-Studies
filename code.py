@@ -30,3 +30,4 @@ while True:
     # This will trigger the default behaviour that will play.
     # regardless if there is a message or not.
     creature.loop()
+    time.sleep(0.01)
