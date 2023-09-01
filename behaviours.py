@@ -4,71 +4,67 @@ class Behaviours:
     state_night_nobody = 2
     state_night_somebody = 3
     state_beautiful = 4
-    def getBehaviour1(self, state):
+    def getBehaviour(self, state):
 #         state = self.state_beautiful # Change this to the state you want to test
         if state == self.state_day_nobody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
+            sequence1 = [(90, 2, 10, "QuadEaseIn"),
                    (0, 2.0, 10, "QuadEaseOut"),
                    (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, state)
+            loops1 = 0
+            sequence2 = [(90, 2, 10, "QuadEaseIn"),
+                   (0, 2.0, 10, "QuadEaseOut"),
+                   (180, 2.0, 10, "SineEaseInOut")]
+            loops2 = 0
+            return (sequence1, loops1, sequence2, loops2)
+
+
+
         if state == self.state_day_somebody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
+            sequence1 = [(90, 2, 10, "QuadEaseIn"),
                    (0, 2.0, 10, "QuadEaseOut"),
                    (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, state)
+            loops1 = 0
+            sequence2 = [(90, 2, 10, "QuadEaseIn"),
+                   (0, 2.0, 10, "QuadEaseOut"),
+                   (180, 2.0, 10, "SineEaseInOut")]
+            loops2 = 0
+            return (sequence1, loops1, sequence2, loops2)
+
+
+
         if state == self.state_night_nobody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
+            sequence1 = [(90, 2, 10, "QuadEaseIn"),
                    (0, 2.0, 10, "QuadEaseOut"),
                    (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, state)
+            loops1 = 0
+            sequence2 = [(90, 2, 10, "QuadEaseIn"),
+                   (0, 2.0, 10, "QuadEaseOut"),
+                   (180, 2.0, 10, "SineEaseInOut")]
+            loops2 = 0
+            return (sequence1, loops1, sequence2, loops2)
+
+
+
         if state == self.state_night_somebody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
+            sequence1 = [(90, 2, 10, "QuadEaseIn"),
                    (0, 2.0, 10, "QuadEaseOut"),
                    (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, state)
+            loops1 = 0
+            sequence2 = [(90, 2, 10, "QuadEaseIn"),
+                   (0, 2.0, 10, "QuadEaseOut"),
+                   (180, 2.0, 10, "SineEaseInOut")]
+            loops2 = 0
+            return (sequence1, loops1, sequence2, loops2)
+
+
+
         if state == self.state_beautiful:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
+            sequence1 = [(90, 2, 10, "QuadEaseIn"),
                    (0, 2.0, 10, "QuadEaseOut"),
                    (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, state)
-            
-            
-            
-    
-    def getBehaviour2(self, state):
-#         state = self.state_beautiful # Change this to the state you want to test
-        if state == self.state_day_nobody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
+            loops1 = 1
+            sequence2 = [(90, 2, 10, "QuadEaseIn"),
                    (0, 2.0, 10, "QuadEaseOut"),
                    (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, loops)
-        if state == self.state_day_somebody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
-                   (0, 2.0, 10, "QuadEaseOut"),
-                   (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, loops)
-        if state == self.state_night_nobody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
-                   (0, 2.0, 10, "QuadEaseOut"),
-                   (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, loops)
-        if state == self.state_night_somebody:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
-                   (0, 2.0, 10, "QuadEaseOut"),
-                   (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, loops)
-        if state == self.state_beautiful:
-            sequence = [(90, 2, 10, "QuadEaseIn"),
-                   (0, 2.0, 10, "QuadEaseOut"),
-                   (180, 2.0, 10, "SineEaseInOut")]
-            loops = 0
-            return (sequence, loops)
+            loops2 = 1
+            return (sequence1, loops1, sequence2, loops2)
