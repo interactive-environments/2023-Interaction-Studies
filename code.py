@@ -1,6 +1,7 @@
 from creature import Creature
 from ecosystem import EcoSystem
 from timer import Timer
+import time
 
 try:
     from settings import settings
