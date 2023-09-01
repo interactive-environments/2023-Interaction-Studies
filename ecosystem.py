@@ -4,7 +4,7 @@ from timer import Timer
 import random
 
 # All messages in this list will be send as part of the
-offline_messages = ["ping", "pong", "pow"]
+offline_messages = ["350", "370"]
 
 offline_timer = Timer()
 offline_timer.set_duration(5)
@@ -34,7 +34,7 @@ class EcoSystem:
             if offline_timer.expired():
                 offline_timer.set_duration(random.randint(3,8))
                 offline_timer.start()
-                self.creature.message(random.choice(offline_messages))
+                self.creature.message("timeofday", random.choice(offline_messages))
 
 
 
