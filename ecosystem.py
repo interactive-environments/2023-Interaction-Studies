@@ -34,7 +34,7 @@ class EcoSystem:
             if offline_timer.expired():
                 offline_timer.set_duration(random.randint(3,8))
                 offline_timer.start()
-                self.creature.message("timeofday", random.choice(offline_messages))
+                self.creature.message("reefcontrol/timeofday", random.choice(offline_messages))
 
 
 

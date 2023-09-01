@@ -2,11 +2,6 @@
 import adafruit_esp32spi.adafruit_esp32spi_socket as socket
 #import adafruit_minimqtt as miniMQTT
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
-from timer import Timer
-
-loop_timer = Timer()
-loop_timer.set_duration(1)
-loop_timer.start()
 
 class MQTTBroker():
 
@@ -55,11 +50,9 @@ class MQTTBroker():
         self.mqtt_client.publish(self.default_topic, message)
 
     def loop(self):
-        if loop_timer.expired():
-            loop_timer.start()
-            try:
-                self.mqtt_client.loop()
-            except (ValueError, RuntimeError) as e:
-                print("Failed to get data, retrying\n", e)
-                self.wifi.reset()
-                self.mqtt_client.reconnect()
+        try:
+            self.mqtt_client.loop(0.02)
+        except (ValueError, RuntimeError) as e:
+            print("Failed to get data, retrying\n", e)
+            self.wifi.reset()
+            self.mqtt_client.reconnect()
