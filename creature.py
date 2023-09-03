@@ -37,7 +37,7 @@ class Creature:
 
     beautiful_duration = 30
     presence_duration = 5
-    presence_timer = Timer(beautiful_duration)
+    presence_timer = Timer(30)
     time_of_day = 0
     energy = 0
 
@@ -114,18 +114,21 @@ class Creature:
                 self.presence_timer.start()
 
 
-    # One iteration of the creatures main loop
     def loop(self):
         beh = behaviours.getBehaviour(self.current_state)
-        position1, running1, changed1 = vs1.sequence(beh[0], beh[1])
-        position2, running2, changed2 = vs2.sequence(beh[2], beh[3])
+        position1, running1, changed1 = vs1.sequence(beh[0], beh[1]) # Here we input the sequence from sequence.py and our most important output is position1. This is the number we should currently be at when following our sequence
+        position2, running2, changed2 = vs2.sequence(beh[2], beh[3]) # Same as above but for our second sequence
         self.checkState(running1 or running2)
-        print(self.current_state)
-        ############################################################
-        # Use these variables to do the outputs
+#         print(self.current_state)
+        ###############################################################
+		# This is about where you'll have to start coding yourself    #
+        # If you want to test out the code here then do the following #
+        # Put a button in A2, a servo motor in D4 and a vibration     #
+        # motor in D2                                                 #
+        ###############################################################
 
 
-        motor.update(position1)
-        servo.update(position2)
+        motor.update(position1) # Here we set the motor to position 1
+        servo.update(position2) # Here we set the servo to position 2
 
 

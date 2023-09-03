@@ -18,7 +18,7 @@ creature = Creature()
 # "Creature" is the creature object create above
 # "connect_to_ecosystem" indicates if the creature should conncet to the ecosystem.
 #   If this is set to "false" it will randomly send messages in order to simulate the eco system
-ecosystem = EcoSystem(ecosystem="reef", creature=creature, connect_to_ecosystem=True)
+ecosystem = EcoSystem(ecosystem="reef", creature=creature, connect_to_ecosystem=False)
 
 # add the ecosystem to the creature
 creature.ecosystem = ecosystem
