@@ -5,7 +5,7 @@ import pwmio
 
 class Buzzer():
     def __init__(self, port=board.D7):
-        self.buzzer = pwmio.PWMOut(port, frequency = 50)
+        self.buzzer = pwmio.PWMOut(port, frequency = 50, variable_frequency=True)
 
     # Takes a value between 0 and 100, then scales it up.
     def update(self, volume):
