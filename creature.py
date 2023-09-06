@@ -47,6 +47,21 @@ class Creature:
     def __init__(self):
         self.ecosystem = None
 
+
+    def OSCMessage(self, topic, dataTypes, output):
+        global lightOn
+        global noise
+        print(topic)
+        print(dataTypes)
+        print(output)
+        if topic == "reefcontrol/timeofday":
+            # Update the time of day
+            self.time_of_day = int(output[0])
+#             print("Updated time of day " + str(self.time_of_day))
+        if topic == "reefcontrol/energy":
+            # Update the time of day
+            self.energy = int(output[0])
+
     def message(self, topic, msg):
         global color
         print("recieved: Topic:" + str(topic) + " Message:" + str(msg))

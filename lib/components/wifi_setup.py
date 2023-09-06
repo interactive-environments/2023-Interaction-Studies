@@ -25,8 +25,10 @@ class WiFi():
 
         # Create wifi object
         self.wifi = adafruit_esp32spi_wifimanager.ESPSPI_WiFiManager(self.esp, settings)
+        self.socket = socket
 
         # Connect to WiFi
         print("Connecting to WiFi...")
         self.wifi.connect()
+        self.socket.set_interface(self.esp)
         print("Connected!")
