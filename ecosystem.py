@@ -44,7 +44,7 @@ class EcoSystem:
     def check_for_messages(self):
         global offline_messages, offline_timer
         if self.connect_to_ecosystem:
-            self.OSCCommunicator.loop(self.OSCMessage)
+            self.OSCCommunicator.loop(self.creature.OSCMessage)
         else:
             # fake the ecosystem
             if offline_timer.expired():
