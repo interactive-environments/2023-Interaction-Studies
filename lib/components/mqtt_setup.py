@@ -1,6 +1,6 @@
 # mqtt_setup.py
+import adafruit_connection_manager
 import adafruit_esp32spi.adafruit_esp32spi_socket as socket
-#import adafruit_minimqtt as miniMQTT
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
 
 class MQTTBroker():
@@ -16,13 +16,19 @@ class MQTTBroker():
         self.wifi = wifi
         self.default_topic = topic
         self.client_id = self.settings["mqtt_clientid"]
-        MQTT.set_socket(socket, self.wifi.esp)
+        # creating a socket pool and ssl context
+        pool = adafruit_connection_manager.get_radio_socketpool(self.wifi.esp)
+        ssl_context = adafruit_connection_manager.get_radio_ssl_context(self.wifi.esp)
+
+#        MQTT.set_socket(socket, self.wifi.esp)
         self.mqtt_client = MQTT.MQTT(
+            client_id = self.client_id,
             broker=settings["mqtt_broker"],
             username=settings["mqtt_broker_user"],
             password=settings["mqtt_broker_password"],
-            port=1883,
-            client_id = self.client_id
+            socket_pool=pool,
+            ssl_context=ssl_context,
+            socket_timeout=.02
         )
 
         self.creature = creature
